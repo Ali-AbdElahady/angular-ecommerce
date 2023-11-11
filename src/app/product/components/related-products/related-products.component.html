@@ -1,0 +1,92 @@
+<!-- <div id="wrapper">
+  <div id="carousel" #carousel class="slider">
+    <div id="content" #content class="slide-track">
+      <div class="item " #myBox >
+
+        <div class="box col-4 slide" *ngFor="let item of relatedProducts" >
+          <div class="slide-img" >
+            <img [src]="item.image" alt="" />
+            <div class="overlay">
+              <a class="buy-btn"  (click)="goBuy(item.id)" > buy now</a>
+            </div>
+          </div>
+          <div class="detail-box row">
+            <div class="type col-8">
+              <a >{{item.title}}</a>
+              <span>{{item.category}}</span>
+            </div>
+            <a  class="price col-4">{{item.price}} $</a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <button id="prev" (click)="prev(carousel,content,nextBtn,prevBtn)" #prevBtn>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path fill="none" d="M0 0h24v24H0V0z" />
+      <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
+    </svg>
+  </button>
+  <button id="next" (click)="next(carousel,content,nextBtn,prevBtn)" #nextBtn>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path fill="none" d="M0 0h24v24H0V0z" />
+      <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
+    </svg>
+  </button>
+</div> -->
+
+
+<section class="bg-color">
+  <div class="containers">
+      <div class="title">
+          <p>The Best Seller Of Delta Store</p>
+          <h2><span>Best</span> Seller</h2>
+      </div>
+      <owl-carousel-o [options]="customOptions">
+      <ng-container style="padding: 0.5rem;" *ngFor="let item of relatedProducts">
+        <ng-template carouselSlide [id]="(item.id).toString()">
+          <div class="">
+              <div class="card">
+                  <div class="card-main">
+                      <div class="discount">-5%</div>
+                      <div class="label label-green">Pre-order</div>
+                      <div class="product-container">
+                          <div class="p" (mouseover)="imageChange($event)" *ngFor="let img of item.image "><img [src]="img"
+                                  alt="Product"></div>
+
+                      </div>
+                      <div class="image main-img" style="height: 270px;background-position: center;background-repeat: no-repeat; background-size: contain; background-image: url({{item.image[0]}});"  >
+                          <!-- <img [src]="item.image[0]" alt="Product"> -->
+                      </div>
+                      <div class="cart-line"></div>
+                      <div class="cart-item" >
+                          <ul style="color: white;">
+                              <li><a ><i class="fas fa-shopping-cart"></i></a></li>
+                              <li><a ><i class="fas fa-heart"></i></a></li>
+                              <li><a ><i class="fas fa-search"></i></a></li>
+
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="content">
+                      <a style="cursor: pointer;" (click)="goBuy(item.id)" >{{item.title | slice:0:20}}</a>
+                      <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                      </div>
+                      <p><span class="money">${{item.price | number}}</span><span class="price-old">${{item.price * (105/100) | number}}</span></p>
+                  </div>
+              </div>
+            </div>
+          </ng-template>
+          </ng-container>
+    </owl-carousel-o>
+
+      </div>
+
+</section>

@@ -1,0 +1,128 @@
+@media (max-width: 767px) {
+    .carousel-inner .carousel-item > div {
+        display: none !important;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block !important;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex !important;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(25%) !important;
+    }
+
+    .carousel-inner .carousel-item-start.active,
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-25%) !important;
+    }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start {
+    transform: translateX(0) !important;
+}
+
+.carousel-item{
+    /* max-height: 300px; */
+}
+
+.carousel-item img{
+    object-fit: contain;
+    /* width: 55%; */
+    height: 400px;
+    padding: 10px;
+}
+
+.card{
+    height: 100%;
+    justify-content: center;
+}
+
+.card-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-control-next-icon{
+    background-color: black;
+    border-radius: 50%;
+}
+
+.carousel-control-prev-icon{
+    background-color: black;
+    border-radius: 50%;
+}
+
+
+.card-img img{
+  height: 400px !important;
+  padding: 0.5rem;
+}
+
+
+
+.title {
+  margin-bottom: 10px;
+  padding-bottom: 40px;
+  text-align: center;
+  position: relative;
+}
+
+.title::before {
+  content: "";
+  width: 200px;
+  height: 3px;
+  background: #dbdbdb;
+  opacity: .6;
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.title::after {
+  content: '\f005';
+  font-family: FontAwesome ;
+  color: #dbdbdb;
+  width: 50px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  background: #eee;
+  transform: translateX(-50%);
+  font-size: 16px;
+}
+
+.title p {
+  color: #999;
+  font-style: italic;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.title h2 {
+  font-size: 44px;
+  color: #131313;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.title span {
+  color: #fa0;
+}

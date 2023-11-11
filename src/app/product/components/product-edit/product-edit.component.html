@@ -1,0 +1,88 @@
+<div class="container my-5">
+  <app-spinner *ngIf="isLoading"></app-spinner>
+
+  <div class="row" *ngIf="!isLoading">
+    <div class="col-md-5">
+      <p>
+        <input
+          type="file"
+          accept="image/*"
+          name="image"
+          id="file"
+          (change)="loadFile($event,mainImg)"
+          style="display: none"
+        />
+      </p>
+      <p><label for="file" class="shadow btn custom-btn" style="cursor: pointer">Upload Image</label></p>
+      <div class="main-img">
+        <img
+          #mainImg
+          id="output"
+          class="img-fluid"
+          [src]="images[0]"
+          [alt]=""
+        />
+        <div class="row my-3 previews">
+          <div class="col-3" *ngFor="let item of images;let i=index" >
+            <img class="w-100" [src]="item" [alt]="i" (click)="changeImg(mainImg,item,$event)" [ngClass]="{'active':!i}" />
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <form class="col-md-7" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <div class="main-description px-2">
+        <div class="category text-bold" >
+          Category: <input #categInput class="form-control" style="width: fit-content; display: inline-block;" formControlName="category" readonly value="" />
+          <div class="dropdown m-2">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" #categBut>
+              {{'Select Category'}}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li *ngFor="let item of categories" (click)="changeCat(item,categBut,categInput)" ><a class="dropdown-item" >{{item}}</a></li>
+              <li><a class="dropdown-item" (click)="isNewCate=true" >New category</a></li>
+            </ul>
+          </div>
+          <div class="input-group" *ngIf="isNewCate">
+            <input type="text" class="form-control" placeholder="Add Category" #newCat required >
+            <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04" (click)="AddNewCat(categBut,newCat)">Add Category</button>
+          </div>
+        </div>
+        <div class="product-title text-bold my-3">
+          Product Title
+          <input type="text" class="form-control" required placeholder="Add Title" #title [value]="" formControlName="title" >
+          <!-- {{ currentProduct.title }} -->
+        </div>
+
+        <div class="price-area my-4">
+          <p class="new-price text-bold mb-1">Product Price</p>
+          <input type="text" class="form-control" required placeholder="Add Price" #Price [value]="" formControlName="price" >
+        </div>
+
+        <div class="price-area my-4">
+          <p class="new-price text-bold mb-1">Quantity</p>
+          <input type="text" class="form-control" placeholder="Add Quantity" #Price [value]="" formControlName="quantity" required>
+        </div>
+
+
+        <div class="product-details my-4">
+          <p class="new-price text-bold mb-1">Product Details</p>
+          <div class="form-floating">
+            <textarea class="form-control h-400" placeholder="Add Description" id="floatingTextarea" #details [value]="" formControlName="description" required ></textarea>
+            <label for="floatingTextarea">Product Details</label>
+          </div>
+        </div>
+        <span
+              *ngIf="notValid"
+              class="help-block d-block">Please enter a valid values</span>
+        <button type="submit" class="btn btn-success" [disabled]="!productForm.valid" #submitBtn >Save Changes</button>
+      </div>
+
+
+    </form>
+  </div>
+</div>
+
+
+
+

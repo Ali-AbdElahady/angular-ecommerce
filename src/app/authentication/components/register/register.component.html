@@ -1,0 +1,70 @@
+<section class="h-100 h-custom" style="">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-8 col-xl-8">
+
+        <div class="row">
+          <div class="col-xs-12 col-md-12 col-md-offset-3">
+            <app-spinner *ngIf="isloading"></app-spinner>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmitRegist()" *ngIf="!isloading">
+              <p class="formName">Sign up</p>
+              <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+                {{errorMessage}}
+              </div>
+              <div class="mb-3 row" [formGroup]="name">
+                <div class="col-md-6 col-sm-12">
+                  <label for="firstName" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="firstName" formControlName="firstname">
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <label for="lastName" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" formControlName="lastname">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <div class="col-md-6 col-sm-12">
+                  <label for="username" class="form-label">User Name</label>
+                  <input type="text" class="form-control" id="username" formControlName="username">
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" formControlName="password">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <div class="col-md-6 col-sm-12">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" formControlName="email">
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <label for="phone" class="form-label">Phone</label>
+                  <input type="text" class="form-control" id="phone" formControlName="phone">
+                </div>
+              </div>
+              <div [formGroup]="address">
+                <div class="mb-3 row">
+                  <div class="col-md-6 col-sm-12">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" formControlName="city">
+                  </div>
+                  <div class="col-md-6 col-sm-12">
+                    <label for="street" class="form-label">Street Name</label>
+                    <input type="text" class="form-control" id="street" formControlName="street">
+                  </div>
+                </div>
+                <div class="col-auto mb-3">
+                  <label for="number" class="form-label">Street Number</label>
+                  <input type="text" class="form-control" id="number" formControlName="number">
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary me-3" [disabled]="!registerForm.valid" >SignUp</button>
+                <button type="button" class="btn btn-primary" routerLink="/auth/login">Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+<div class="col-12">
+  <div class="filter-menu">
+    <form (ngSubmit)="onSubmit(filterForm)" #filterForm="ngForm">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title hidden-sm">
+            Filter
+          </h3><!-- /.panel-title -->
+          <div class="panel-body mb-2">
+            <button class="btn btn-secondary" type="submit">Apply</button>
+            <button type="button" class="btn btn-secondary float-end hidden-sm" (click)="reset()" >Reset</button>
+          </div><!-- /.panel-body -->
+        </div><!-- /.panel-heading -->
+
+        <div class="panel-body">
+          <div class="panel-group" id="filter-menu" role="tablist" aria-multiselectable="true">
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Categories
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <div class="form-check categoryFilter" *ngFor="let item of Categories; let i = index">
+                      <input class="form-check-input" type="checkbox" data-value="{{item}}" id="{{i}}">
+                      <label class="form-check-label" for="{{i}}">
+                        {{item}}
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Price
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1" >Min price</span>
+                        <input type="number" class="form-control" name="minPrice" ngModel required  placeholder="Min price" aria-label="minPrice" aria-describedby="basic-addon1" value="10" min="10" max="10000" >
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Max price</span>
+                        <input type="number" class="form-control" name="maxPrice" ngModel required  placeholder="Min price" aria-label="minPrice" aria-describedby="basic-addon1" value="10000" min="10" max="10000" >
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- /.panel-group -->
+        </div><!-- /.panel-body -->
+
+      </div><!-- /.panel -->
+    </form>
+  </div><!-- /.filter-menu -->
+</div>

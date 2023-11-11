@@ -1,0 +1,85 @@
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse'+index"
+        aria-expanded="false" [attr.aria-controls]="'collapse'+index">
+        <span *ngIf="userInfo"> {{userInfo.name.firstname}} {{userInfo.name.lastname}} / {{userInfo.address.city}} / {{userCarts.date | date}} </span>
+      </button>
+    </h2>
+    <div [id]="'collapse'+index" class="accordion-collapse collapse" aria-labelledby="headingOne"
+      data-bs-parent="#accordionExample">
+      <div class="accordion-body" *ngIf="allProducts">
+
+        <div class="card mb-3" *ngFor="let item of userCarts.products">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex flex-row align-items-center">
+                <div>
+                  <img [src]="getProductInfo(item.productId).image"
+                    class="img-fluid rounded-3" alt="Shopping item" style="width: 80px;">
+                </div>
+                <div class="ms-3">
+                  <h5>{{getProductInfo(item.productId).title}}</h5>
+                  <p class="small mb-0">{{getProductInfo(item.productId).category}}</p>
+                </div>
+              </div>
+              <div class="d-flex flex-row align-items-center">
+                <div style="width: 80px;">
+                  <h5 class="fw-normal mb-0">{{getProductInfo(item.productId).price}}</h5>
+                </div>
+                <div style="width: 50px;">
+                  <h5 class="fw-normal mb-0">{{item.quantity}}</h5>
+                </div>
+                <div style="width: 80px;">
+                  <h5 class="mb-0">{{getProductInfo(item.productId).price*item.quantity}}</h5>
+                </div>
+                <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card mb-4" *ngIf="userInfo">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Full Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{userInfo.name.firstname}} {{userInfo.name.lastname}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"> {{userInfo.email}} </p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"> {{userInfo.phone}} </p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Address</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0"> {{userInfo.address.number}}, {{userInfo.address.street}}, {{userInfo.address.city}} </p>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>

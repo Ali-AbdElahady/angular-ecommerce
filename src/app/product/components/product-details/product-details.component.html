@@ -1,0 +1,111 @@
+<div class="container my-5">
+  <app-spinner *ngIf="isLoading"></app-spinner>
+
+  <div class="row" *ngIf="!isLoading">
+    <div class="col-md-5">
+      <div class="main-img">
+        <img
+          #mainImg
+          class="img-fluid big"
+          [src]="currentProduct.image[0]"
+          [alt]="currentProduct.title"
+        />
+        <div class="row my-3 previews">
+          <div class="col-3" *ngFor="let img of currentProduct.image; let i=index">
+            <img class="w-100" [src]="img" [alt]="i" (click)="changeImg($event,mainImg)" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="main-description px-2">
+        <div class="category text-bold">
+          Category: {{ currentProduct.category }}
+        </div>
+        <div class="product-title text-bold my-3">
+          {{ currentProduct.title }}
+        </div>
+
+        <div class="price-area my-4">
+          <!-- <p class="old-price mb-1">
+            <del>$100</del>
+            <span class="old-price-discount text-danger">(20% off)</span>
+          </p> -->
+          <p class="new-price text-bold mb-1">{{ currentProduct.price }}</p>
+          <p class="text-secondary mb-1">
+            (Additional tax may apply on checkout)
+          </p>
+        </div>
+
+        <div class="buttons d-flex my-5">
+          <!-- <div class="block">
+            <a class="shadow btn custom-btn">Wishlist</a>
+          </div> -->
+          <div class="block">
+            <button class="shadow btn custom-btn" (click)="addToCart(quantity)">Add to cart</button>
+          </div>
+          <div class="block">
+            <button class="shadow btn custom-btn" routerLink="/product-details/{{currentProduct.id}}/edit" *ngIf="isAllowed" >Edit</button>
+          </div>
+
+          <div class="d-flex quantity" >
+            <input
+              type="number"
+              class="form-control"
+              id="cart_quantity"
+              value="1"
+              min="1"
+              max="5"
+              placeholder=""
+              name="cart_quantity"
+              #quantity
+            />
+            <p class="text-secondary danger mb-1 ms-2" *ngIf="notValidQuant">
+              (Please add valid quantity)
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="product-details my-4">
+        <p class="details-title text-color mb-1">Product Details</p>
+        <p class="description">
+          {{ currentProduct.description }}
+        </p>
+      </div>
+      <!-- <div class="product-details my-4">
+        <p class="details-title text-color mb-2">Material & Care</p>
+        <ul>
+          <li>Cotton</li>
+          <li>Machine-wash</li>
+        </ul>
+      </div>
+      <div class="product-details my-4">
+        <p class="details-title text-color mb-2">Sold by</p>
+        <ul>
+          <li>Cotton</li>
+          <li>Machine-wash</li>
+        </ul>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="container similar-products my-4">
+  <hr />
+  <!-- <p class="display-5">Similar Products</p> -->
+
+  <div class="text-center" *ngIf="isLoading">
+    <app-spinner></app-spinner>
+  </div>
+
+  <div class="row" *ngIf="!isLoading">
+    <!-- carousel -->
+    <app-related-products
+      [relatedProducts]="relatedProducts"
+    ></app-related-products>
+  </div>
+</div>
+
+

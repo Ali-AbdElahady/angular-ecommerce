@@ -1,0 +1,7 @@
+
+@media screen and (max-width: 767px) {
+  .fix-filter{
+    flex-direction: column;
+  }
+}
+

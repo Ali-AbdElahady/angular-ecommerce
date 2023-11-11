@@ -1,0 +1,64 @@
+<div class="container text-center my-3 {{className}}">
+  <div class="row mx-auto my-auto justify-content-center">
+    <div class="title">
+      <!-- <p>{{category}}</p> -->
+      <h2><span>{{category}}</span></h2>
+    </div>
+    <!-- <h3>{{category}}</h3> -->
+    <!-- <div id="{{className}}" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item" *ngFor="let item of categoryProducts">
+          <div class="col-md-4">
+            <div class="card">
+              <a class="card-img" routerLink="/product-details/{{item.id}}">
+                <img [src]="item.image[0]" class="img-fluid">
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <a class="carousel-control-prev bg-transparent w-aut" href="#{{className}}" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next bg-transparent w-aut" href="#{{className}}" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </a>
+    </div> -->
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let slide of categoryProducts">
+        <ng-template carouselSlide [id]="(slide.id).toString()">
+          <div class="">
+            <div class="card">
+              <a class="card-img" routerLink="/product-details/{{slide.id}}">
+                <img [src]="slide.image[0]" class="img-fluid">
+              </a>
+              <!-- <div class="card-img-overlay">{{item.title}}</div> -->
+            </div>
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+</div>
+
+<!-- <hr>
+<div class="container text-center my-3 {{className}}">
+  <div class="row mx-auto my-auto justify-content-center">
+    <div>Some tags before</div>
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let slide of categoryProducts">
+        <ng-template carouselSlide [id]="(slide.id).toString()">
+          <div class="">
+            <div class="card">
+              <a class="card-img" routerLink="/product-details/{{slide.id}}">
+                <img [src]="slide.image[0]" class="img-fluid">
+              </a>
+            </div>
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+    <div>Some tags after</div>
+  </div>
+</div> -->

@@ -1,0 +1,28 @@
+<div class="container mt-5 mb-5">
+  <div class="d-flex justify-content-center row">
+    <div class="col-md-12">
+      <div class="p-2">
+        <h4 class="d-inline-block">Shopping cart</h4>
+        <div class="dropdown d-inline-block float-end">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort by
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" (click)="sortById()" >Name</a></li>
+            <li><a class="dropdown-item" (click)="sortByDate()" >Date</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="alert alert-primary" role="alert" *ngIf="!allCarts" >
+        Cart is empty, <a class="add-pro" routerLink="/products" >add some</a>
+      </div>
+      <div>
+        <div *ngFor="let item of sortedCarts; let i=index">
+          <app-admin-single-cart [index]="i" [userCarts]="item"  ></app-admin-single-cart>
+          <br>
+        </div>
+
+      </div>
+    </div>
+
+  </div>

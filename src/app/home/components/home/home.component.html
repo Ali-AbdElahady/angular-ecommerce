@@ -1,0 +1,69 @@
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="height: 40rem; background-position: center; background-repeat: no-repeat; background-size: cover; background-image:url(https://wallpaperaccess.com/full/1448056.jpg);" >
+        <!-- <img src="https://wallpaperaccess.com/full/1448056.jpg" class="d-block w-100" alt="..."> -->
+        <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+      </div>
+      <div class="carousel-item" style="height: 40rem; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url(https://c4.wallpaperflare.com/wallpaper/611/606/541/women-style-fashion-model-wallpaper-preview.jpg);">
+        <!-- <img src="https://c4.wallpaperflare.com/wallpaper/611/606/541/women-style-fashion-model-wallpaper-preview.jpg" class="d-block w-100" alt="..."> -->
+        <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+      </div>
+      <div class="carousel-item" style="height: 40rem; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url(https://img.freepik.com/premium-photo/gold-jewelry-diamond-shop-with-rings-necklaces-luxury-retail-store-window-display-showcase_293060-5161.jpg?w=2000);">
+        <!-- <img src="https://img.freepik.com/premium-photo/gold-jewelry-diamond-shop-with-rings-necklaces-luxury-retail-store-window-display-showcase_293060-5161.jpg?w=2000" class="d-block w-100" alt="..."> -->
+        <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+      </div>
+      <div class="carousel-item" style="height: 40rem; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url(https://thumbs.dreamstime.com/z/saint-petersburg-russia-circa-may-goods-display-sony-store-galeria-shopping-center-electronics-store-134641471.jpg);">
+        <!-- <img src="https://thumbs.dreamstime.com/z/saint-petersburg-russia-circa-may-goods-display-sony-store-galeria-shopping-center-electronics-store-134641471.jpg" class="d-block w-100" alt="..."> -->
+        <div class="carousel-caption d-none d-md-block">
+            <h5>Forth slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- end of first carousel -->
+
+<br>
+<br>
+
+<!-- start of second carousel -->
+<app-slider class="w-100" [category]="'men\'s clothing'" [className]="'first'" ></app-slider>
+<!-- end of second carousel -->
+
+<br>
+<!-- start of second carousel -->
+<app-slider class="w-100" [category]="'women\'s clothing'" [className]="'second'" ></app-slider>
+<!-- end of second carousel -->
+
+<br>
+<!-- start of second carousel -->
+<app-slider class="w-100" [category]="'jewelery'" [className]="'third'" ></app-slider>
+<!-- end of second carousel -->
+
+<br>
+<!-- start of second carousel -->
+<app-slider class="w-100" [category]="'electronics'" [className]="'forth'" ></app-slider>
+<!-- end of second carousel -->
